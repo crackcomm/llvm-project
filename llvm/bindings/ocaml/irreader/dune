@@ -1,0 +1,11 @@
+(library
+ (name llvm_irreader)
+ (public_name llvm.irreader)
+ (libraries llvm)
+ (foreign_stubs
+  (language c)
+  (names irreader_ocaml)
+  (include_dirs
+   %{env:LLVM_INCLUDE=/usr/include/llvm-12}
+   %{env:LLVM_C_INCLUDE=/usr/include/llvm-c-12}))
+ (c_library_flags -L%{env:LLVM_LIBDIR=/usr/lib/llvm-12/lib} -lLLVM))
