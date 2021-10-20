@@ -1,0 +1,11 @@
+(library
+ (name llvm_ipo)
+ (public_name llvm.ipo)
+ (libraries llvm)
+ (foreign_stubs
+  (language c)
+  (names ipo_ocaml)
+  (include_dirs
+   %{env:LLVM_INCLUDE=/usr/include/llvm-13}
+   %{env:LLVM_C_INCLUDE=/usr/include/llvm-c-13}))
+ (c_library_flags -L%{env:LLVM_LIBDIR=/usr/lib/llvm-13/lib} -lLLVM))
