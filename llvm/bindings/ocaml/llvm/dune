@@ -6,8 +6,9 @@
  (foreign_stubs
   (language c)
   (names llvm_ocaml)
-  (flags -w :standard)
-  (include_dirs
-   %{env:LLVM_INCLUDE=/usr/include/llvm-13}
-   %{env:LLVM_C_INCLUDE=/usr/include/llvm-c-13}))
+  (flags
+   -w
+   -I%{env:LLVM_INCLUDE=/usr/include/llvm-13}
+   -I%{env:LLVM_C_INCLUDE=/usr/include/llvm-c-13}
+   :standard))
  (c_library_flags -L%{env:LLVM_LIBDIR=/usr/lib/llvm-13/lib} -lLLVM))
