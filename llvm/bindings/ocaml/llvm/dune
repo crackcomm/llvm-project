@@ -1,0 +1,14 @@
+(library
+ (name llvm)
+ (public_name llvm)
+ (flags
+  (:standard -w -50 -w -37 -w -34 -w -32))
+ (foreign_stubs
+  (language c)
+  (names llvm_ocaml)
+  (flags
+   -w
+   -I%{env:LLVM_INCLUDE=/usr/include/llvm-14}
+   -I%{env:LLVM_C_INCLUDE=/usr/include/llvm-c-14}
+   :standard))
+ (c_library_flags -L%{env:LLVM_LIBDIR=/usr/lib/llvm-14/lib} -lLLVM))

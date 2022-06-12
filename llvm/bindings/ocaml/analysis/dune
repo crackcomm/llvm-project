@@ -1,0 +1,12 @@
+(library
+ (name llvm_analysis)
+ (public_name llvm.analysis)
+ (libraries llvm)
+ (foreign_stubs
+  (language c)
+  (names analysis_ocaml)
+  (flags
+   -fPIC
+   -I%{env:LLVM_INCLUDE=/usr/include/llvm-14}
+   -I%{env:LLVM_C_INCLUDE=/usr/include/llvm-c-14}))
+ (c_library_flags -L%{env:LLVM_LIBDIR=/usr/lib/llvm-14/lib} -lLLVM))

@@ -1,0 +1,10 @@
+(library
+ (name llvm_all_backends)
+ (public_name llvm.all_backends)
+ (foreign_stubs
+  (language c)
+  (names all_backends_ocaml)
+  (flags
+   -I%{env:LLVM_INCLUDE=/usr/include/llvm-14}
+   -I%{env:LLVM_C_INCLUDE=/usr/include/llvm-c-14}))
+ (c_library_flags -L%{env:LLVM_LIBDIR=/usr/lib/llvm-14/lib} -lLLVM))
